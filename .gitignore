@@ -1,0 +1,62 @@
+# ============================================================
+# PitchProbe .gitignore
+# ============================================================
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Vector stores (these are LARGE binary files, rebuild from PDFs)
+chroma_db/
+chroma_db_advanced/
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Test/diagnostic temp files
+test_*.py
+diagnose_*.py
+
+# Build artifacts
+dist/
+build/
+*.egg
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Optional: PDFs (decide based on whether they're copyrighted)
+# *.pdf
