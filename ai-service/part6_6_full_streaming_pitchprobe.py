@@ -433,7 +433,17 @@ def route_to_specialists(state: PitchProbeState) -> list[Send]:
 # GRAPH
 # ============================================================
 
-def build_graph():
+def build_graph(checkpointer=None, store=None):
+    """
+    Build the PitchProbe multi-agent graph.
+    
+    Args:
+        checkpointer: Optional checkpointer for state persistence (Part 7)
+        store: Optional store for cross-thread memory (Part 7.5+)
+    
+    Returns:
+        Compiled LangGraph workflow.
+    """
     workflow = StateGraph(PitchProbeState)
     workflow.add_node("validate", validate_startup)
     workflow.add_node("supervisor", supervisor)
@@ -455,7 +465,9 @@ def build_graph():
     workflow.add_edge("risk_specialist", "synthesizer")
     workflow.add_edge("team_specialist", "synthesizer")
     workflow.add_edge("synthesizer", END)
-    return workflow.compile()
+    
+    # Compile with optional persistence
+    return workflow.compile(checkpointer=checkpointer, store=store)
 
 
 # ============================================================
