@@ -60,3 +60,9 @@ Thumbs.db
 
 # Optional: PDFs (decide based on whether they're copyrighted)
 # *.pdf
+
+# Persistent state files (regeneratable, machine-specific)
+*.db
+*.db-shm
+*.db-wal
+pitchprobe_checkpoints.db
